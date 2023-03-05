@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <table class="table mt-5">
+        <thead>
+          <tr class="table-title">
+            
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-text" *ngFor="let user of userList">
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <a class="btn" [routerLink]="['/pages/user-detail', user.id]"
+                >Show Detail</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

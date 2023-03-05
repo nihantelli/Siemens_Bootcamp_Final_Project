@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <table class="table mt-5">
+        <thead>
+          <tr class="table-title">
+            <th>Id</th>
+            <th>UserId</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-text" *ngFor="let post of postList">
+            <td>{{ post.id }}</td>
+            <td>{{ post.userId }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+            <td>
+              <a class="btn" [routerLink]="['/pages/post-detail', post.id]"
+                >Show Detail</a
+              >
+            </td>
+            <td>
+              <a class="btn" [routerLink]="['/pages/comments', post.id]"
+                >Show Comments</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

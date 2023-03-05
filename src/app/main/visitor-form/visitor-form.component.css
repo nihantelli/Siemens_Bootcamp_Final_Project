@@ -1,0 +1,35 @@
+.btn {
+  background-color: rgb(222, 154, 154);
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.1);
+  background-color: rgb(212, 124, 124);
+}
+label {
+  color: rgb(173, 76, 76);
+  font-weight: 600;
+}
+.form-title {
+  color: rgb(173, 76, 76);
+}
+.error-modal {
+  background-color: rgb(212, 124, 124);
+}
+.success-modal {
+  background-color: rgb(200, 212, 124);
+}
+.close-icon-error {
+  background-color: rgb(212, 124, 124);
+  border: none;
+}
+.close-icon-success {
+  background-color: rgb(200, 212, 124);
+  border: none;
+}
+.table-title {
+  color: rgb(173, 76, 76);
+}
+.table-text {
+  color: rgb(95, 59, 59);
+}

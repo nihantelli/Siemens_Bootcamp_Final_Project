@@ -1,0 +1,16 @@
+.active {
+  color: rgb(105, 29, 29);
+  font-weight: 700;
+  
+}
+.list-group-item:hover {
+  background-color: rgb(222, 154, 154);
+  border-radius: 10px;
+}
+.link {
+  text-decoration: none;
+  color: rgb(173, 76, 76);
+}
+.list-group {
+  margin-top: 25%;
+}

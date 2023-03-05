@@ -1,0 +1,11 @@
+.active {
+  background-color: rgb(222, 154, 154);
+  border-radius: 10px;
+}
+.nav-link:hover {
+  background-color: rgb(222, 154, 154);
+  border-radius: 10px;
+}
+.navbar-brand {
+  color: rgb(173, 76, 76);
+}

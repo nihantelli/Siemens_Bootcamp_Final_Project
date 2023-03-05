@@ -1,0 +1,178 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="frm" (ngSubmit)="save()">
+        <h4 class="form-title text-center mT-5">VISITOR NOTEBOOK</h4>
+        <div class="mt-4">
+          <label class="form-label">Name:</label>
+          <input
+            formControlName="name"
+            type="text"
+            class="form-control"
+            placeholder="Place enter your name."
+          />
+
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('name')">
+              <div *ngIf="isInvalidControl('name', 'required')">
+                Name field must be filled!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label class="form-label">E-mail:</label>
+          <input
+            formControlName="email"
+            type="text"
+            class="form-control"
+            placeholder="Place enter your email."
+          />
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('email')">
+              <div *ngIf="isInvalidControl('email', 'required')">
+                E-mail field must be filled!
+              </div>
+              <div *ngIf="isInvalidControl('email', 'pattern')">
+                Please check your e-mail pattern!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Content:</label
+          >
+
+          <textarea
+            formControlName="content"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            placeholder="Place enter your comment here."
+          ></textarea>
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('content')">
+              <div *ngIf="isInvalidControl('content', 'required')">
+                Content field must be filled!
+              </div>
+              <div *ngIf="isInvalidControl('content', 'minlength')">
+                Content field must be at least 50 characters long.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label class="form-label">Birthdate Year:</label>
+          <input
+            formControlName="birthdate"
+            type="date"
+            class="form-control"
+            placeholder="Place enter your birthdate year."
+          />
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('birthdate')">
+              <div *ngIf="isInvalidControl('birthdate', 'required')">
+                Birthdate field must be filled!
+              </div>
+              <div *ngIf="isInvalidControl('birthdate', 'min')">
+                Date of birth cannot be less than 1900.
+              </div>
+              <div *ngIf="isInvalidControl('birthdate', 'birthdateFormat')">
+                Your age must be min 16!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label class="form-label">Publish Date Expire:</label>
+          <div *ngFor="let publish of publishDatelist">
+            <div class="form-check">
+              <input
+                formControlName="publish"
+                class="form-check-input"
+                type="radio"
+                value="{{ publish.id }}"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {{ publish.text }}
+              </label>
+            </div>
+            <div class="form-text text-danger">
+              <div *ngIf="isInvalid('publish')">
+                <div *ngIf="isInvalidControl('publish', 'required')">
+                  One of the publish options must be selected!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label class="form-label">Content Type:</label>
+          <select formControlName="contentType" class="form-select">
+            <option value="">SELECT</option>
+            <option
+              *ngFor="let content of contentTypeList"
+              value="{{ content.id }}"
+            >
+              {{ content.text }}
+            </option>
+          </select>
+          <div class="form-text text-danger">
+            <div *ngIf="isInvalid('contentType')">
+              <div *ngIf="isInvalidControl('contentType', 'required')">
+                One of the content type options must be selected!
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn mt-5">Kaydet</button>
+        <div
+          *ngIf="visible"
+          class="alert error-modal mt-4 d-flex justify-content-between"
+        >
+          <div>Form is not valid. Please check your form completely!</div>
+          <button class="close-icon-danger" (click)="closeModal()">
+            <i class="fa-solid fa-xmark fa-2x"></i>
+          </button>
+        </div>
+        <div
+          *ngIf="visible_confirm"
+          class="alert success-modal mt-4 d-flex justify-content-between"
+        >
+          <div>Form submitted succesfully.</div>
+          <button class="close-icon-success" (click)="closeModal()">
+            <i class="fa-solid fa-xmark fa-2x"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12">
+      <table class="table mt-5">
+        <thead>
+          <tr class="table-title">
+            <th>Name</th>
+            <th>E-mail</th>
+            <th>Content</th>
+            <th>Birthdate</th>
+            <th>Publish</th>
+            <th>Content Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="table-text"
+            *ngFor="let visitor of visitorService.visitors"
+          >
+            <th>{{ visitor?.name }}</th>
+            <th>{{ visitor?.email }}</th>
+            <th>{{ visitor?.content }}</th>
+            <th>{{ visitor?.birthdate }}</th>
+            <th>{{ visitor?.publish }}</th>
+            <th>{{ visitor?.contentType }}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
