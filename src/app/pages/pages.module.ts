@@ -12,7 +12,6 @@ import { DetailComponent } from './post-detail/detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { CommentsComponent } from './comments/comments.component';
 
-
 @NgModule({
   declarations: [
     PostsComponent,
@@ -25,8 +24,7 @@ import { CommentsComponent } from './comments/comments.component';
     DetailComponent,
     UserDetailComponent,
     CommentsComponent,
-    
   ],
-  imports: [CommonModule, AppRoutingModule],
+  imports: [CommonModule, AppRoutingModule, AppRoutingModule],
 })
 export class PagesModule {}

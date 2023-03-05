@@ -132,7 +132,7 @@
           class="alert error-modal mt-4 d-flex justify-content-between"
         >
           <div>Form is not valid. Please check your form completely!</div>
-          <button class="close-icon-danger" (click)="closeModal()">
+          <button class="close-icon-error" (click)="closeModal()">
             <i class="fa-solid fa-xmark fa-2x"></i>
           </button>
         </div>
@@ -147,7 +147,7 @@
         </div>
       </form>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="visitorService.confirm">
       <table class="table mt-5">
         <thead>
           <tr class="table-title">

@@ -13,6 +13,7 @@ import { BirhdateValidator } from '../birhdate-validation';
 })
 export class VisitorFormComponent {
   newVisitor: VisitorType | undefined = undefined;
+
   public frm = this.formBuilder.group({
     name: ['', Validators.required],
     email: [
@@ -30,6 +31,7 @@ export class VisitorFormComponent {
     ],
     publish: ['', Validators.required],
     contentType: ['', Validators.required],
+    isOkay: [false],
   });
 
   constructor(
@@ -50,7 +52,7 @@ export class VisitorFormComponent {
     }
     this.visible_confirm = true;
     this.newVisitor = this.frm.value as VisitorType;
-
+    this.frm.controls['isOkay'].setValue(false);
     this.visitorService.addVisitor(this.newVisitor);
     this.visitorService.resetForm(this.frm);
   }

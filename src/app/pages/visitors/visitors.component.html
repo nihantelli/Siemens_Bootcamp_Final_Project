@@ -1,5 +1,43 @@
-<div class="container">
-  <div class="row mt-5">
-    <p>visitors works!</p>
-  </div>
+<div class="col-md-12">
+  <table class="table mt-5">
+    <thead>
+      <tr class="table-title">
+        <th>Name</th>
+        <th>E-mail</th>
+        <th>Content</th>
+        <th>Birthdate</th>
+        <th>Publish</th>
+        <th>Content Type</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-text" *ngFor="let visitor of visitorService.visitors">
+        <td>{{ visitor?.name }}</td>
+        <td>{{ visitor?.email }}</td>
+        <td>{{ visitor?.content }}</td>
+        <td>{{ visitor?.birthdate }}</td>
+        <td>{{ visitor?.publish }}</td>
+        <td>{{ visitor?.contentType }}</td>
+        <td>
+          <button
+            class="btn"
+            (click)="visitorService.deleteVisitor(visitor.email)"
+          >
+            Delete
+          </button>
+        </td>
+        <td>
+          <div class="d-flex mt-1">
+            <label>Confirm</label>
+            <input 
+              (click)="visitorService.confirmTrue(visitor.email)"
+              type="checkbox"
+            />
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

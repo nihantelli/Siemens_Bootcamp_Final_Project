@@ -8,16 +8,24 @@ import { VisitorType } from '../models/visitorType';
 export class VisitorStateService {
   public visitors: VisitorType[] = [];
   constructor() {}
-
+  confirm: boolean = false;
   deleteVisitor(email: string) {
-    const index = this.visitors.findIndex((x) => x.email == email);
-    this.visitors.splice(index, 1);
+    this.visitors = this.visitors.filter((x) => x.email != email);
   }
   addVisitor(newVisitor: VisitorType) {
     this.visitors.push(newVisitor);
   }
-  resetForm(form: FormGroup) {
-    form.reset();
-    form.controls['publishdateExpire'].setValue('1 month');
+  resetForm(frm: FormGroup) {
+    frm.reset();
+    frm.controls['publishdateExpire'].setValue('1 month');
+  }
+  confirmTrue(email: string) {
+    this.visitors.forEach((x) => {
+      if (x.email == email) {
+        x.isOkay = true;
+        this.confirm = true;
+        return;
+      }
+    });
   }
 }
