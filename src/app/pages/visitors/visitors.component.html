@@ -13,6 +13,7 @@
       </tr>
     </thead>
     <tbody>
+      <!-- listing all visitor data with confirm and delete buttons -->
       <tr class="table-text" *ngFor="let visitor of visitorService.visitors">
         <td>{{ visitor?.name }}</td>
         <td>{{ visitor?.email }}</td>
@@ -21,10 +22,7 @@
         <td>{{ visitor?.publish }}</td>
         <td>{{ visitor?.contentType }}</td>
         <td>
-          <button
-            class="btn"
-            (click)="visitorService.delete(visitor.email)"
-          >
+          <button class="btn" (click)="visitorService.delete(visitor.email)">
             Delete
           </button>
         </td>

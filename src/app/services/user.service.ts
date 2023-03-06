@@ -7,6 +7,7 @@ import { User } from '../models/user';
 })
 export class UserService {
   constructor(private http: HttpClient) {}
+  //user methods
   getUsers() {
     return this.http.get<User[]>('http://jsonplaceholder.typicode.com/users');
   }

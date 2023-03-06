@@ -13,7 +13,7 @@ import { BirhdateValidator } from '../birhdate-validation';
 })
 export class VisitorFormComponent {
   newVisitor: VisitorType | undefined = undefined;
-
+  //Creating form group with validations
   public frm = this.formBuilder.group({
     name: ['', Validators.required],
     email: [
@@ -37,6 +37,7 @@ export class VisitorFormComponent {
     private formBuilder: FormBuilder,
     public visitorService: VisitorStateService
   ) {}
+  //visibility of error or confirm pop-up
   visible_error: boolean = false;
   visible_confirm: boolean = false;
   closeModal() {
@@ -55,6 +56,7 @@ export class VisitorFormComponent {
     this.visitorService.add(this.newVisitor);
     this.visitorService.reset(this.frm);
   }
+  // form elements in html
   publishDatelist: PublishDate[] = [
     { id: 1, text: '1 month' },
     { id: 2, text: '3 month' },
@@ -64,7 +66,7 @@ export class VisitorFormComponent {
     { id: 1, text: 'Criticism' },
     { id: 2, text: 'Suggestion' },
   ];
-
+  // Validation functions
   isValid(controlSelector: string) {
     let control = this.frm.get(controlSelector)!;
     return control.valid && (control.dirty || control.touched);

@@ -7,6 +7,7 @@ import { Post } from '../models/post';
 })
 export class PostService {
   constructor(private http: HttpClient) {}
+  //post and comment methods
   getPosts() {
     return this.http.get<Post[]>('http://jsonplaceholder.typicode.com/posts');
   }

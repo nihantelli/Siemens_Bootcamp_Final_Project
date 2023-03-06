@@ -15,6 +15,7 @@ export class PostsComponent implements OnInit {
     this.postList = [];
     
   }
+  //accessing the post service and creating a post list
   ngOnInit(): void {
     this.loading = true;
     this.postService.getPosts().subscribe((posts) => {

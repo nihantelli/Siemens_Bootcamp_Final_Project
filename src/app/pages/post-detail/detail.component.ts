@@ -16,6 +16,7 @@ export class DetailComponent implements OnInit {
     private postService: PostService
   ) {}
   ngOnInit(): void {
+    //getting id from route and accessing to methods in services
     this.loading = true;
     const detailId = this.activatedRoute.snapshot.params['id'];
     this.postService.getPostsById(detailId).subscribe((detail) => {

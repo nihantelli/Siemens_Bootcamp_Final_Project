@@ -15,6 +15,7 @@ export class CommentsComponent implements OnInit {
     private postService: PostService
   ) {}
   ngOnInit(): void {
+    //getting id from route and accessing to methods in services
     this.loading = true;
     const id = this.activatedRoute.snapshot.params['id'];
     this.postService.getCommentsById(id).subscribe((x) => {

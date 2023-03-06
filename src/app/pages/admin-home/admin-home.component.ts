@@ -19,7 +19,7 @@ export class AdminHomeComponent  {
     public userService: UserService,
     public visitorService: VisitorStateService
   ) {
-    
+    // keeping data from services in array
     this.postService.getPosts().subscribe((x) => {
       this.postList = x;
       

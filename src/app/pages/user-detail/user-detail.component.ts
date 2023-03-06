@@ -18,6 +18,7 @@ export class UserDetailComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.loading = true;
+    //getting id from route and accessing to methods in services
     const detailId = this.activatedRoute.snapshot.params['id'];
     this.userService.getUsersById(detailId).subscribe((detail) => {
       this.detailUser = detail;

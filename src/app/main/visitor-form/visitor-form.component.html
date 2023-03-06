@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-6 offset-md-3">
+      <!-- Form -->
       <form [formGroup]="frm" (ngSubmit)="save()">
-        <h4 class="form-title text-center mT-5">VISITOR NOTEBOOK</h4>
+        <h4 class="form-title text-center mT-5">VISITOR FORM</h4>
+        <!--Name-->
         <div class="mt-4">
           <label class="form-label">Name:</label>
           <input
@@ -11,7 +13,7 @@
             class="form-control"
             placeholder="Place enter your name."
           />
-
+          <!--Validation -->
           <div class="form-text text-danger">
             <div class="error-validation" *ngIf="isInvalid('name')">
               <div *ngIf="isInvalidControl('name', 'required')">
@@ -20,6 +22,7 @@
             </div>
           </div>
         </div>
+         <!--E-mail-->
         <div class="mt-4">
           <label class="form-label">E-mail:</label>
           <input
@@ -28,6 +31,7 @@
             class="form-control"
             placeholder="Place enter your email."
           />
+          <!--Validation -->
           <div class="form-text text-danger">
             <div class="error-validation" *ngIf="isInvalid('email')">
               <div *ngIf="isInvalidControl('email', 'required')">
@@ -39,6 +43,7 @@
             </div>
           </div>
         </div>
+        <!--Content-->
         <div class="mt-4">
           <label for="exampleFormControlTextarea1" class="form-label"
             >Content:</label
@@ -51,6 +56,7 @@
             rows="3"
             placeholder="Place enter your comment here."
           ></textarea>
+          <!-- Validation -->
           <div class="form-text text-danger">
             <div class="error-validation" *ngIf="isInvalid('content')">
               <div *ngIf="isInvalidControl('content', 'required')">
@@ -62,6 +68,7 @@
             </div>
           </div>
         </div>
+        <!-- Birthdate -->
         <div class="mt-4">
           <label class="form-label">Birthdate Year:</label>
           <input
@@ -70,6 +77,7 @@
             class="form-control"
             placeholder="Place enter your birthdate year."
           />
+          <!-- Validation -->
           <div class="form-text text-danger">
             <div class="error-validation" *ngIf="isInvalid('birthdate')">
               <div *ngIf="isInvalidControl('birthdate', 'required')">
@@ -84,6 +92,7 @@
             </div>
           </div>
         </div>
+          <!-- Publish Date -->
         <div class="mt-4">
           <label class="form-label">Publish Date Expire:</label>
           <div *ngFor="let publish of publishDatelist">
@@ -98,6 +107,7 @@
                 {{ publish.text }}
               </label>
             </div>
+            <!-- Validation -->
             <div class="form-text text-danger">
               <div class="error-validation" *ngIf="isInvalid('publish')">
                 <div *ngIf="isInvalidControl('publish', 'required')">
@@ -107,6 +117,7 @@
             </div>
           </div>
         </div>
+            <!--Content Type -->
         <div class="mt-4">
           <label class="form-label">Content Type:</label>
           <select formControlName="contentType" class="form-select">
@@ -118,6 +129,7 @@
               {{ content.text }}
             </option>
           </select>
+          <!-- Validation -->
           <div class="form-text text-danger">
             <div class="error-validation" *ngIf="isInvalid('contentType')">
               <div *ngIf="isInvalidControl('contentType', 'required')">
@@ -127,6 +139,7 @@
           </div>
         </div>
         <button type="submit" class="btn mt-5">Save</button>
+        <!--Error or Confirm pop-up-->
         <div
           *ngIf="visible_error"
           class="alert error-modal mt-4 d-flex justify-content-between"
@@ -147,6 +160,7 @@
         </div>
       </form>
     </div>
+   <!-- Listing form values that only confirmed -->
     <div class="col-md-12">
       <table class="table mt-5">
         <thead>

@@ -7,7 +7,9 @@ export function BirhdateValidator(): ValidatorFn {
     let birthdateYear = new Date(control.value).getTime();
     let today = new Date().getTime();
     let differenceMs = today - birthdateYear;
-    let differenceDay = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+    //convert from milisecond to day
+    let differenceDay = differenceMs / (1000 * 60 * 60 * 24);
+    //convert from day to year
     let ageRule = differenceDay / 365 >= 16;
     let yearRule = birthdateYear <= today;
     const isValid = ageRule && yearRule;

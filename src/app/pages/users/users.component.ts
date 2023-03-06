@@ -13,6 +13,7 @@ export class UsersComponent {
   constructor(private userService: UserService) {
     this.userList = [];
   }
+  //accessing the user service and creating a user list
   ngOnInit(): void {
     this.loading = true;
     this.userService.getUsers().subscribe((users) => {
