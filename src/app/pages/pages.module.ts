@@ -7,10 +7,10 @@ import { PagesLayoutComponent } from './pages-layout/pages-layout.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { HeaderPagesComponent } from './shared-pages/header-pages/header-pages.component';
-import { FooterPagesComponent } from './shared-pages/footer-pages/footer-pages.component';
 import { DetailComponent } from './post-detail/detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { CommentsComponent } from './comments/comments.component';
+import { MainModule } from '../main/main.module';
 
 @NgModule({
   declarations: [
@@ -20,11 +20,11 @@ import { CommentsComponent } from './comments/comments.component';
     PagesLayoutComponent,
     AdminHomeComponent,
     HeaderPagesComponent,
-    FooterPagesComponent,
     DetailComponent,
     UserDetailComponent,
     CommentsComponent,
+    
   ],
-  imports: [CommonModule, AppRoutingModule, AppRoutingModule],
+  imports: [CommonModule, AppRoutingModule, AppRoutingModule, MainModule],
 })
 export class PagesModule {}

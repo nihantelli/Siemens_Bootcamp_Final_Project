@@ -32,6 +32,7 @@ const routes: Routes = [
     path: 'pages',
     component: PagesLayoutComponent,
     children: [
+      { path: '', component: AdminHomeComponent },
       { path: 'admin-home', component: AdminHomeComponent },
       { path: 'posts', component: PostsComponent },
       { path: 'users', component: UsersComponent },

@@ -7,23 +7,27 @@ import { VisitorType } from '../models/visitorType';
 })
 export class VisitorStateService {
   public visitors: VisitorType[] = [];
+  public confirmedVisitors: VisitorType[] = [];
   constructor() {}
-  confirm: boolean = false;
-  deleteVisitor(email: string) {
+
+  delete(email: string) {
     this.visitors = this.visitors.filter((x) => x.email != email);
+    this.confirmedVisitors = this.confirmedVisitors.filter(
+      (x) => x.email != email
+    );
   }
-  addVisitor(newVisitor: VisitorType) {
+  add(newVisitor: VisitorType) {
     this.visitors.push(newVisitor);
   }
-  resetForm(frm: FormGroup) {
+  reset(frm: FormGroup) {
     frm.reset();
-    frm.controls['publishdateExpire'].setValue('1 month');
   }
   confirmTrue(email: string) {
     this.visitors.forEach((x) => {
       if (x.email == email) {
         x.isOkay = true;
-        this.confirm = true;
+        this.confirmedVisitors = this.visitors.filter((x) => x.isOkay == true);
+
         return;
       }
     });

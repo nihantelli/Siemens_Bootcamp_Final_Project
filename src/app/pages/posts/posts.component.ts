@@ -9,12 +9,17 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
+  loading: boolean = false;
   postList: Post[];
-  constructor(
-   private postService: PostService) {
+  constructor(private postService: PostService) {
     this.postList = [];
+    
   }
   ngOnInit(): void {
-    this.postService.getPosts().subscribe((posts) => (this.postList = posts));
+    this.loading = true;
+    this.postService.getPosts().subscribe((posts) => {
+      this.postList = posts;
+      this.loading = false;
+    });
   }
 }

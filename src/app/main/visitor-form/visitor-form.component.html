@@ -13,7 +13,7 @@
           />
 
           <div class="form-text text-danger">
-            <div *ngIf="isInvalid('name')">
+            <div class="error-validation" *ngIf="isInvalid('name')">
               <div *ngIf="isInvalidControl('name', 'required')">
                 Name field must be filled!
               </div>
@@ -29,7 +29,7 @@
             placeholder="Place enter your email."
           />
           <div class="form-text text-danger">
-            <div *ngIf="isInvalid('email')">
+            <div class="error-validation" *ngIf="isInvalid('email')">
               <div *ngIf="isInvalidControl('email', 'required')">
                 E-mail field must be filled!
               </div>
@@ -52,7 +52,7 @@
             placeholder="Place enter your comment here."
           ></textarea>
           <div class="form-text text-danger">
-            <div *ngIf="isInvalid('content')">
+            <div class="error-validation" *ngIf="isInvalid('content')">
               <div *ngIf="isInvalidControl('content', 'required')">
                 Content field must be filled!
               </div>
@@ -71,7 +71,7 @@
             placeholder="Place enter your birthdate year."
           />
           <div class="form-text text-danger">
-            <div *ngIf="isInvalid('birthdate')">
+            <div class="error-validation" *ngIf="isInvalid('birthdate')">
               <div *ngIf="isInvalidControl('birthdate', 'required')">
                 Birthdate field must be filled!
               </div>
@@ -92,14 +92,14 @@
                 formControlName="publish"
                 class="form-check-input"
                 type="radio"
-                value="{{ publish.id }}"
+                value="{{ publish.text }}"
               />
               <label class="form-check-label" for="flexRadioDefault1">
                 {{ publish.text }}
               </label>
             </div>
             <div class="form-text text-danger">
-              <div *ngIf="isInvalid('publish')">
+              <div class="error-validation" *ngIf="isInvalid('publish')">
                 <div *ngIf="isInvalidControl('publish', 'required')">
                   One of the publish options must be selected!
                 </div>
@@ -113,22 +113,22 @@
             <option value="">SELECT</option>
             <option
               *ngFor="let content of contentTypeList"
-              value="{{ content.id }}"
+              value="{{ content.text }}"
             >
               {{ content.text }}
             </option>
           </select>
           <div class="form-text text-danger">
-            <div *ngIf="isInvalid('contentType')">
+            <div class="error-validation" *ngIf="isInvalid('contentType')">
               <div *ngIf="isInvalidControl('contentType', 'required')">
                 One of the content type options must be selected!
               </div>
             </div>
           </div>
         </div>
-        <button type="submit" class="btn mt-5">Kaydet</button>
+        <button type="submit" class="btn mt-5">Save</button>
         <div
-          *ngIf="visible"
+          *ngIf="visible_error"
           class="alert error-modal mt-4 d-flex justify-content-between"
         >
           <div>Form is not valid. Please check your form completely!</div>
@@ -147,7 +147,7 @@
         </div>
       </form>
     </div>
-    <div class="col-md-12" *ngIf="visitorService.confirm">
+    <div class="col-md-12">
       <table class="table mt-5">
         <thead>
           <tr class="table-title">
@@ -162,7 +162,7 @@
         <tbody>
           <tr
             class="table-text"
-            *ngFor="let visitor of visitorService.visitors"
+            *ngFor="let visitor of visitorService.confirmedVisitors"
           >
             <th>{{ visitor?.name }}</th>
             <th>{{ visitor?.email }}</th>

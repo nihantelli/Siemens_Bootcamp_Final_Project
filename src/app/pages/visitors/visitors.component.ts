@@ -8,6 +8,7 @@ import { VisitorStateService } from 'src/app/services/visitor-state.service';
   styleUrls: ['./visitors.component.css'],
 })
 export class VisitorsComponent {
+  
   constructor(public visitorService: VisitorStateService) {}
  
  

@@ -1,10 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <div class="mt-5" *ngIf="loading">
+        <div class="d-flex justify-content-center">
+          <img src="../../../assets/images/Spin-1.1s-70px.svg" alt="" />
+        </div>
+      </div>
       <table class="table mt-5">
         <thead>
           <tr class="table-title">
-            <th>Post Id</th>
+            <th class="postid">Post Id</th>
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>

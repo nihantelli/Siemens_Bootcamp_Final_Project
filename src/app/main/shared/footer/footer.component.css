@@ -1,8 +1,13 @@
 .btn {
-  background-color: rgb(222, 154, 154);
+  background-color: #e9afaf;
   border-radius: 10px;
+  color: #fff;
 }
 .btn:hover {
   transform: scale(1.1);
-  background-color: rgb(212, 124, 124) ;
+  color: #ce9b9b;
+  background-color: #e9afaf;
+}
+.footer-text {
+  color: #b98892;
 }

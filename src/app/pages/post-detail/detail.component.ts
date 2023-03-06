@@ -10,11 +10,13 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class DetailComponent implements OnInit {
   detailPost?: Post;
+  loading: boolean = false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private postService: PostService
   ) {}
   ngOnInit(): void {
+    this.loading = true;
     const detailId = this.activatedRoute.snapshot.params['id'];
     this.postService.getPostsById(detailId).subscribe((detail) => {
       this.detailPost = detail;
@@ -22,6 +24,7 @@ export class DetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((param: any) => {
       this.postService.getPostsById(param.id).subscribe((x) => {
         this.detailPost = x;
+        this.loading = false;
       });
     });
   }

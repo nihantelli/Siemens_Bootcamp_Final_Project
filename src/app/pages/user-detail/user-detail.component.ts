@@ -9,12 +9,15 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-detail.component.css'],
 })
 export class UserDetailComponent implements OnInit {
+  loading: boolean = false;
+ 
   detailUser?: User;
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: UserService
   ) {}
   ngOnInit(): void {
+    this.loading = true;
     const detailId = this.activatedRoute.snapshot.params['id'];
     this.userService.getUsersById(detailId).subscribe((detail) => {
       this.detailUser = detail;
@@ -22,6 +25,7 @@ export class UserDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((param: any) => {
       this.userService.getUsersById(param.id).subscribe((x) => {
         this.detailUser = x;
+        this.loading = false;
       });
     });
   }

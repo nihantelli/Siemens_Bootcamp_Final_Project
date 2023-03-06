@@ -1,14 +1,11 @@
-.table-title {
-  color: rgb(173, 76, 76);
-}
-.table-text {
-  color: rgb(95, 59, 59);
-}
 .btn {
-  background-color: rgb(222, 154, 154);
-  cursor: pointer;
-}
-.btn:hover {
-  transform: scale(1.1);
-  background-color: rgb(212, 124, 124);
-}
+    background-color: #e9afaf;
+    cursor: pointer;
+    color: #8d7272;
+    font-weight: 500;
+  }
+  .btn:hover {
+    transform: scale(1.1);
+    color: #fff;
+    background-color: #e9afaf;
+  }

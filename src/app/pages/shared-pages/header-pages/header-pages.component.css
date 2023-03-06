@@ -1,15 +1,21 @@
 .active {
-  color: rgb(105, 29, 29);
+  color: #c77676;
   font-weight: 700;
-  
+  font-size: 18px;
 }
+
 .list-group-item:hover {
-  background-color: rgb(222, 154, 154);
+  background-color: #e9afaf;
   border-radius: 10px;
+}
+.link:hover {
+  color: #fff;
 }
 .link {
   text-decoration: none;
-  color: rgb(173, 76, 76);
+  color: #b98892;
+  text-transform: uppercase;
+
 }
 .list-group {
   margin-top: 25%;

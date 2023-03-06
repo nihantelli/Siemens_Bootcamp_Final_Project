@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { User } from 'src/app/models/user';
 import { PostService } from 'src/app/services/post.service';
@@ -10,7 +10,8 @@ import { VisitorStateService } from 'src/app/services/visitor-state.service';
   templateUrl: './admin-home.component.html',
   styleUrls: ['./admin-home.component.css'],
 })
-export class AdminHomeComponent {
+export class AdminHomeComponent  {
+ 
   public postList: Post[] = [];
   public userList: User[] = [];
   constructor(
@@ -18,11 +19,15 @@ export class AdminHomeComponent {
     public userService: UserService,
     public visitorService: VisitorStateService
   ) {
+    
     this.postService.getPosts().subscribe((x) => {
       this.postList = x;
+      
     });
     this.userService.getUsers().subscribe((x) => {
       this.userList = x;
+      
     });
   }
+  
 }

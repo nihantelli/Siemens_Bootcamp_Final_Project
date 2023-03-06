@@ -7,7 +7,7 @@
         <th>Content</th>
         <th>Birthdate</th>
         <th>Publish</th>
-        <th>Content Type</th>
+        <th>Type</th>
         <th></th>
         <th></th>
       </tr>
@@ -23,7 +23,7 @@
         <td>
           <button
             class="btn"
-            (click)="visitorService.deleteVisitor(visitor.email)"
+            (click)="visitorService.delete(visitor.email)"
           >
             Delete
           </button>
@@ -31,7 +31,7 @@
         <td>
           <div class="d-flex mt-1">
             <label>Confirm</label>
-            <input 
+            <input
               (click)="visitorService.confirmTrue(visitor.email)"
               type="checkbox"
             />

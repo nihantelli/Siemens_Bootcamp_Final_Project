@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.btn {
+  background-color: #e9afaf;
+  cursor: pointer;
+  color: #8d7272;
+  font-weight: 500;
+}
+.btn:hover {
+  transform: scale(1.1);
+  color: #fff;
+  background-color: #e9afaf;
+}
+
+.table-title {
+  color: #8d7272;
+}
+.table-text {
+  color: #776161;
+}
+.content-title {
+  color: #776161;
+  margin-top: 10%;
+}

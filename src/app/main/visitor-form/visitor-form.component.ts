@@ -33,30 +33,28 @@ export class VisitorFormComponent {
     contentType: ['', Validators.required],
     isOkay: [false],
   });
-
   constructor(
     private formBuilder: FormBuilder,
     public visitorService: VisitorStateService
   ) {}
-  visible: boolean = false;
+  visible_error: boolean = false;
   visible_confirm: boolean = false;
   closeModal() {
-    this.visible = false;
+    this.visible_error = false;
     this.visible_confirm = false;
   }
 
   save() {
     if (this.frm.invalid) {
-      this.visible = true;
+      this.visible_error = true;
       return;
     }
+    this.frm.controls['isOkay'].setValue(false);
     this.visible_confirm = true;
     this.newVisitor = this.frm.value as VisitorType;
-    this.frm.controls['isOkay'].setValue(false);
-    this.visitorService.addVisitor(this.newVisitor);
-    this.visitorService.resetForm(this.frm);
+    this.visitorService.add(this.newVisitor);
+    this.visitorService.reset(this.frm);
   }
-
   publishDatelist: PublishDate[] = [
     { id: 1, text: '1 month' },
     { id: 2, text: '3 month' },
@@ -73,15 +71,12 @@ export class VisitorFormComponent {
   }
   isInvalid(controlSelector: string): boolean {
     let control = this.frm.get(controlSelector)!;
-
     if (!(control.invalid && (control.dirty || control.touched))) return false;
-
     if (control.errors?.['required']) return true;
     if (control.errors?.['minlength']) return true;
     if (control.errors?.['min']) return true;
     if (control.errors?.['pattern']) return true;
     if (control.errors?.['birthdateFormat']) return true;
-
     return false;
   }
   isInvalidControl(controlSelector: string, validationName: string) {
