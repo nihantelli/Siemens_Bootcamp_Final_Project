@@ -7,12 +7,16 @@
         </div>
       </div>
       <table class="table m-5">
-            <!-- Listing user details  -->
+        <!-- Listing user details  -->
         <thead>
           <tr class="table-title">
             <th>Name</th>
             <th>Username</th>
             <th>Email</th>
+            <th>ADDRESS</th>
+            <th>PHONE</th>
+            <th>WEBSITE</th>
+            <th>COMPANY</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +24,26 @@
             <td>{{ detailUser?.name }}</td>
             <td>{{ detailUser?.username }}</td>
             <td>{{ detailUser?.email }}</td>
+
+            <td class="d-flex flex-column">
+              <span>Street:</span> {{ detailUser?.address?.street }}
+              <span>Suite:</span> {{ detailUser?.address?.suite }}
+              <span>City:</span> {{ detailUser?.address?.city }}
+              <span> Zipcode:</span>
+              {{ detailUser?.address?.zipcode }}
+            </td>
+
+            <td>{{ detailUser?.phone }}</td>
+
+            <td>{{ detailUser?.website }}</td>
+
+            <td class="d-flex flex-column">
+              <span> Name:</span> {{ detailUser?.company?.name }}
+              <span>CatchPhrase:</span>
+              {{ detailUser?.company?.catchPhrase }}
+              <span>Bs:</span>
+              {{ detailUser?.company?.bs }},
+            </td>
           </tr>
         </tbody>
       </table>
