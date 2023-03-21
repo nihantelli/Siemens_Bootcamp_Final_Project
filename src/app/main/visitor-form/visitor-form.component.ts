@@ -67,10 +67,7 @@ export class VisitorFormComponent {
     { id: 2, text: 'Suggestion' },
   ];
   // Validation functions
-  isValid(controlSelector: string) {
-    let control = this.frm.get(controlSelector)!;
-    return control.valid && (control.dirty || control.touched);
-  }
+ 
   isInvalid(controlSelector: string): boolean {
     let control = this.frm.get(controlSelector)!;
     if (!(control.invalid && (control.dirty || control.touched))) return false;
